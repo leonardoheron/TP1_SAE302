@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">TP1</string>
+    <string name="action_settings">Paramètres</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Première page</string>
+    <string name="second_fragment_label">Deuxième page</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Bienvenue dans la première partie !</string>
+    <string name="hello_second_fragment">Bienvenue dans le second fragement ! Arg: %1$s</string>
+    <string name="app_message">Test de mon propre texte</string>
+    <string name="dialog_message">Welcome to Alert Dialog</string>
+</resources>
