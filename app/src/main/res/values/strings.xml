@@ -10,8 +10,9 @@
     <string name="hello_first_fragment">Bienvenue dans la première partie !</string>
     <string name="hello_second_fragment">Bienvenue dans le second fragement ! Arg: %1$s</string>
     <string name="app_message">Veuillez complété le champs Pseudo et d\'établir une connexion</string>
-    <string name="dialog_message">Welcome to Alert Dialog</string>
+    <string name="dialog_message">whut</string>
     <string name="hint">Entrer votre pseudo</string>
-    <string name="text_button_client_connect">Client Connect</string>
+    <string name="text_button_client_connect">Connection client</string>
+    <string name="IP_Server">IP du serveur</string>
 </resources>
 

@@ -1,5 +1,6 @@
 package com.example.tp1;
 
+import com.example.tp1.ActivitePrincipal;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Context;
 
 import java.io.DataOutputStream;
 import java.io.DataInputStream;
@@ -57,8 +59,9 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Client C = new Client();
+                C.setActivity((ActivitePrincipal)getActivity());
                 C.execute();
-            }
+                }
         });
     }
 
@@ -67,6 +70,9 @@ public class FirstFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+    
     
 
 
@@ -79,45 +85,54 @@ class Client extends AsyncTask<Void, String, String> {
     EditText inputText;
 
 
+
     @Override
     protected void OnCreate()
     inputText = (EditText) findViewById(R.id.TextInput_Client_Name);
     String nomClient = simpleEditText.getText().toString();*/
 
+    private ActivitePrincipal Activite;
 
+    protected void setActivity(ActivitePrincipal AP){
+        Activite = AP;
 
+    }
+    /*
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
         ActivitePrincipal AP = new ActivitePrincipal();
         String nomClient = AP.Client_name();
         System.out.println(nomClient);
-    }
+
+        }
+
+    */
 
     @Override
     protected String doInBackground(Void... voids) {
         Socket client = null;
         try {
-            ActivitePrincipal AP = new ActivitePrincipal();
-            String nomClient = AP.Client_name();
-            client = new Socket("192.168.0.32",5001);
+            String nomClient = Activite.Client_name();
+            client = new Socket("192.168.1.16",5001);
             System.out.println("Nom client");
             System.out.println(nomClient);
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
 
             out.writeUTF(nomClient);
             DataInputStream in = new DataInputStream(client.getInputStream());
-            /*
             String s1 = in.readUTF();
             System.out.println(s1);
-            */
+            client.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Termine client");
         return "Terminé client";
     }
 
-
+/*
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
@@ -127,5 +142,5 @@ class Client extends AsyncTask<Void, String, String> {
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
     }
-
+*/
 }

@@ -28,6 +28,8 @@ public class ActivitePrincipal extends AppCompatActivity {
 
     EditText TextInput_Client_Name;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

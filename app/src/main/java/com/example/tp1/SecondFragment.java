@@ -66,25 +66,12 @@ public class SecondFragment extends Fragment {
 
 class Serveur extends AsyncTask<Void, String, String> {
 
-
     /*
-    public static void main() throws IOException{
-        ServerSocket ss = new ServerSocket(5001);
-        System.out.println("En attente de connexion d'un client");
-        Socket s = ss.accept();
-        System.out.println("Connexie établie");
-        DataInputStream in = new DataInputStream(s.getInputStream());
-        String nomClient = in.readUTF();
-        String s1 = "Bienvenue"+nomClient+", t'es bien connecté bro";
-        DataOutputStream out = new DataOutputStream(s.getOutputStream());
-        out.writeUTF(s1);
-    }
-     */
-
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
     }
+     */
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -97,10 +84,12 @@ class Serveur extends AsyncTask<Void, String, String> {
             System.out.println("Connexie établie");
             DataInputStream in = new DataInputStream(s.getInputStream());
             String nomClient = in.readUTF();
-            String s1 = "Bienvenue"+nomClient+", t'es bien connecté bro";
+            String s1 = "Bienvenue "+nomClient+", t'es bien connecté bro";
             DataOutputStream out = new DataOutputStream(s.getOutputStream());
             out.writeUTF(s1);
+            ss.close();
         } catch (IOException e) {
+            System.out.println("Ceci est une erreur.");
             e.printStackTrace();
         }
         return "Terminé";
@@ -108,7 +97,7 @@ class Serveur extends AsyncTask<Void, String, String> {
 
     }
 
-
+    /*
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
@@ -118,4 +107,6 @@ class Serveur extends AsyncTask<Void, String, String> {
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
     }
+
+     */
 }

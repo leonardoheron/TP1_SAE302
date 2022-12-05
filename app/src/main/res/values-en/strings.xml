@@ -9,5 +9,8 @@
     <string name="hello_first_fragment">Hello in the first fragment !</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="app_message">Self-test</string>
+    <string name="dialog_message">Welcome to Alert Dialog</string>
     <string name="hint">hinte</string>
+    <string name="text_button_client_connect">Client Connect</string>
+    <string name="IP_Server">Server IP</string>
 </resources>
