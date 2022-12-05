@@ -18,11 +18,15 @@ import com.example.tp1.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ActivitePrincipal extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
+    EditText TextInput_Client_Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class ActivitePrincipal extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        TextInput_Client_Name = findViewById(R.id.TextInput_Client_Name);
 
         setSupportActionBar(binding.toolbar);
 
@@ -40,10 +46,10 @@ public class ActivitePrincipal extends AppCompatActivity {
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
     }
 
@@ -74,5 +80,17 @@ public class ActivitePrincipal extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public String Client_name() {
+        TextView textView;
+        EditText TextInput_Client_Name;
+
+
+        TextInput_Client_Name = (EditText) findViewById(R.id.TextInput_Client_Name);
+        String nomClient = TextInput_Client_Name.getText().toString();
+
+        System.out.println(nomClient);
+        return nomClient;
     }
 }
