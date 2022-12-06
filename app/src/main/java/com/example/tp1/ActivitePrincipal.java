@@ -19,6 +19,7 @@ import com.example.tp1.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class ActivitePrincipal extends AppCompatActivity {
@@ -44,6 +45,7 @@ public class ActivitePrincipal extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,5 +96,12 @@ public class ActivitePrincipal extends AppCompatActivity {
 
         System.out.println(nomClient);
         return nomClient;
+    }
+
+    public void setVisibility_PB() {
+        ProgressBar PB;
+        PB = (ProgressBar) findViewById(R.id.progressBar);
+        PB.setVisibility(View.VISIBLE);
+
     }
 }

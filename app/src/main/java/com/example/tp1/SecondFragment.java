@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -73,11 +74,19 @@ class Serveur extends AsyncTask<Void, String, String> {
     }
      */
 
+    private ActivitePrincipal Activite;
+
+    protected void setActivity(ActivitePrincipal AP){
+        Activite = AP;
+
+    }
+
     @Override
     protected String doInBackground(Void... voids) {
 
         ServerSocket ss = null;
         try {
+            Activite.setVisibility_PB();
             ss = new ServerSocket(5001);
             System.out.println("En attente de connexion d'un client");
             Socket s = ss.accept();

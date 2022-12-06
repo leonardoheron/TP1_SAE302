@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TP1</string>
+    <string name="app_name">TP1_HERON</string>
     <string name="action_settings">Settings</string>
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello in the first fragment !</string>
+    <string name="first_fragment_label">Client connection</string>
+    <string name="second_fragment_label">Server connection</string>
+    <string name="next">Server</string>
+    <string name="previous">Client</string>
+    <string name="hello_first_fragment">This part allow a client connect to a server</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="app_message">Self-test</string>
     <string name="dialog_message">Welcome to Alert Dialog</string>
-    <string name="hint">hinte</string>
-    <string name="text_button_client_connect">Client Connect</string>
+    <string name="hint">Enter your name</string>
+    <string name="text_button_client_connect">Connect</string>
     <string name="IP_Server">Server IP</string>
 </resources>
