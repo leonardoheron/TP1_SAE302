@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name" translatable="false">TP1</string>
+    <string name="app_name" translatable="false">TP1_HERON</string>
     <string name="action_settings">Paramètres</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Première page</string>
-    <string name="second_fragment_label">Deuxième page</string>
-    <string name="next">Suivant</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label">Connexion client</string>
+    <string name="second_fragment_label">Connexion serveur</string>
+    <string name="next">Serveur</string>
+    <string name="previous">Client</string>
 
-    <string name="hello_first_fragment">Bienvenue dans la première partie !</string>
-    <string name="hello_second_fragment">Bienvenue dans le second fragement ! Arg: %1$s</string>
-    <string name="app_message">Veuillez complété le champs Pseudo et d\'établir une connexion</string>
+    <string name="hello_first_fragment">Cette partie permet au client de se connecter à un serveur.</string>
+    <string name="hello_second_fragment">Cette partie permet de demarrer le serveur.</string>
+    <string name="app_message">Veuillez compléter le champs Pseudo et établir une connexion</string>
     <string name="dialog_message">whut</string>
     <string name="hint">Entrer votre pseudo</string>
-    <string name="text_button_client_connect">Connection client</string>
+    <string name="text_button_client_connect">Se connecter</string>
     <string name="IP_Server">IP du serveur</string>
 </resources>
 
