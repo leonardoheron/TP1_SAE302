@@ -116,7 +116,8 @@ class Client extends AsyncTask<Void, String, String> {
         Socket client = null;
         try {
             String nomClient = Activite.Client_name();
-            client = new Socket("192.168.1.36",5001);
+            String IP_Server = Activite.Server_IP();
+            client = new Socket(IP_Server,5001);
             System.out.println("Nom client");
             System.out.println(nomClient);
             DataOutputStream out = new DataOutputStream(client.getOutputStream());

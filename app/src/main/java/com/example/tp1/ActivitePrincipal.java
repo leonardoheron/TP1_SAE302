@@ -99,6 +99,17 @@ public class ActivitePrincipal extends AppCompatActivity {
         return nomClient;
     }
 
+    public String Server_IP() {
+        EditText TextInput_Server_IP;
+
+
+        TextInput_Server_IP = (EditText) findViewById(R.id.TextInput_Server_IP);
+        String IP_Server = TextInput_Server_IP.getText().toString();
+
+        System.out.println(IP_Server);
+        return IP_Server;
+    }
+
     public void setVisibility_PB(int visib) {
         ProgressBar PB = findViewById(R.id.progressBar_server);
         PB.setVisibility(visib);
