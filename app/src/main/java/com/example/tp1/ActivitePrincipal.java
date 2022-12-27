@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -37,8 +36,8 @@ public class ActivitePrincipal extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         TextInput_Client_Name = findViewById(R.id.TextInput_Client_Name);
+        System.out.println(TextInput_Client_Name);
 
         setSupportActionBar(binding.toolbar);
 
@@ -55,6 +54,8 @@ public class ActivitePrincipal extends AppCompatActivity {
             }
 
         });
+    }
+    public void init_fragment2(){
     }
 
     @Override
@@ -98,10 +99,8 @@ public class ActivitePrincipal extends AppCompatActivity {
         return nomClient;
     }
 
-    public void setVisibility_PB() {
-        ProgressBar PB;
-        PB = (ProgressBar) findViewById(R.id.progressBar);
-        PB.setVisibility(View.VISIBLE);
-
+    public void setVisibility_PB(int visib) {
+        ProgressBar PB = findViewById(R.id.progressBar_server);
+        PB.setVisibility(visib);
     }
 }

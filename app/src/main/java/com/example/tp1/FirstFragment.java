@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.content.Context;
 
@@ -115,7 +116,7 @@ class Client extends AsyncTask<Void, String, String> {
         Socket client = null;
         try {
             String nomClient = Activite.Client_name();
-            client = new Socket("192.168.1.16",5001);
+            client = new Socket("192.168.1.36",5001);
             System.out.println("Nom client");
             System.out.println(nomClient);
             DataOutputStream out = new DataOutputStream(client.getOutputStream());

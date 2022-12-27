@@ -1,6 +1,7 @@
 package com.example.tp1;
 
-import android.os.AsyncTask;
+import com.example.tp1.ActivitePrincipal;
+import  android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.example.tp1.databinding.FragmentSecondBinding;
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    private SecondFragment that;
 
     @Override
     public View onCreateView(
@@ -31,26 +33,27 @@ public class SecondFragment extends Fragment {
     ) {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
+        that = this;
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        ((ActivitePrincipal)getActivity()).init_fragment2();
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
+
         });
 
         binding.buttonServer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Serveur task = new Serveur();
+                Serveur task = new Serveur(that);
                 task.execute();
 
             }
@@ -61,6 +64,9 @@ public class SecondFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    public void setProgressBar(int visible){
+        ((ActivitePrincipal)getActivity()).setVisibility_PB(visible);
     }
 
 }
@@ -73,12 +79,11 @@ class Serveur extends AsyncTask<Void, String, String> {
         super.onPreExecute();
     }
      */
+    private SecondFragment parent;
 
-    private ActivitePrincipal Activite;
-
-    protected void setActivity(ActivitePrincipal AP){
-        Activite = AP;
-
+    Serveur(SecondFragment fragment){
+        parent= fragment;
+        parent.setProgressBar(0);
     }
 
     @Override
@@ -86,7 +91,6 @@ class Serveur extends AsyncTask<Void, String, String> {
 
         ServerSocket ss = null;
         try {
-            Activite.setVisibility_PB();
             ss = new ServerSocket(5001);
             System.out.println("En attente de connexion d'un client");
             Socket s = ss.accept();
@@ -106,12 +110,13 @@ class Serveur extends AsyncTask<Void, String, String> {
 
     }
 
-    /*
+
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        parent.setProgressBar(4);
     }
-
+    /*
     @Override
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
