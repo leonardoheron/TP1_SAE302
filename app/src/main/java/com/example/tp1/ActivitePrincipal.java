@@ -1,5 +1,7 @@
 package com.example.tp1;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -7,6 +9,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.net.wifi.*;
+import android.content.*;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -52,6 +56,7 @@ public class ActivitePrincipal extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
 
         });
     }
@@ -110,8 +115,10 @@ public class ActivitePrincipal extends AppCompatActivity {
         return IP_Server;
     }
 
+
     public void setVisibility_PB(int visib) {
         ProgressBar PB = findViewById(R.id.progressBar_server);
         PB.setVisibility(visib);
     }
+
 }

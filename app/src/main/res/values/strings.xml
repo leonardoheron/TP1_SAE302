@@ -14,5 +14,6 @@
     <string name="hint">Entrer votre pseudo</string>
     <string name="text_button_client_connect">Se connecter</string>
     <string name="IP_Server">IP du serveur</string>
+    <string name="IP_du_serveur"></string>
 </resources>
 

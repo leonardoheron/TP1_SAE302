@@ -1,6 +1,11 @@
 package com.example.tp1;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import com.example.tp1.ActivitePrincipal;
+
+import android.content.Context;
+import android.net.wifi.WifiManager;
 import  android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -84,12 +89,19 @@ class Serveur extends AsyncTask<Void, String, String> {
     Serveur(SecondFragment fragment){
         parent= fragment;
         parent.setProgressBar(0);
+        Context context = requireContext().getApplicationContext();
+        WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        String IP_du_serveur = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+
     }
+
+
 
     @Override
     protected String doInBackground(Void... voids) {
 
         ServerSocket ss = null;
+
         try {
             ss = new ServerSocket(5001);
             System.out.println("En attente de connexion d'un client");

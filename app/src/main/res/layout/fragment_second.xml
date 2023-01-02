@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/base"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -61,5 +61,17 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/button_server"
         app:layout_constraintStart_toStartOf="@+id/button_server" />
+
+    <TextView
+        android:id="@+id/IP_serveur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/IP_du_serveur"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar_server"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/base" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
