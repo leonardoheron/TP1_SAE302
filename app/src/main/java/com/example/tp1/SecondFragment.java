@@ -13,12 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.text.format.Formatter;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
+
+
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -59,6 +67,7 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Serveur task = new Serveur(that);
+                task.setActivity((ActivitePrincipal)getActivity());
                 task.execute();
 
             }
@@ -89,13 +98,32 @@ class Serveur extends AsyncTask<Void, String, String> {
     Serveur(SecondFragment fragment){
         parent= fragment;
         parent.setProgressBar(0);
-        Context context = requireContext().getApplicationContext();
-        WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        String IP_du_serveur = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+        //Context context = requireContext().getApplicationContext();
+        //WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+
 
     }
 
+    private ActivitePrincipal Activite;
 
+    protected void setActivity(ActivitePrincipal AP){
+        Activite = AP;
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        try {
+            TextView ipadd = (TextView) Activite.findViewById(R.id.IP_serveur);
+            InetAddress ia = InetAddress.getLocalHost();
+            String test_ip = ia.getHostAddress();
+            ipadd.setText(test_ip);
+            System.out.println(test_ip);
+        } catch (UnknownHostException e) {
+            System.out.println(e);
+        }
+    }
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -103,6 +131,7 @@ class Serveur extends AsyncTask<Void, String, String> {
         ServerSocket ss = null;
 
         try {
+
             ss = new ServerSocket(5001);
             System.out.println("En attente de connexion d'un client");
             Socket s = ss.accept();

@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:layout_marginBottom="100dp"
-        android:text="@string/IP_du_serveur"
+        android:text="@string/test_ip"
         app:layout_constraintBottom_toTopOf="@+id/progressBar_server"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
